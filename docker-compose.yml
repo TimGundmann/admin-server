@@ -2,16 +2,10 @@ version: '2.1'
 
 services:
   admin:
-    image: slydeveloper/spring-boot-admin
-    environment:
-      - SPRING_BOOT_ADMIN_TITLE=Custom Spring Boot Admin title
-      - SPRING_BOOT_ADMIN_USER_NAME=tim
-      - SPRING_BOOT_ADMIN_USER_PASSWORD=Prut0809
-      - SPRING_BOOT_ADMIN_SECURITY_ENABLED=true
-    volumes:
-      - ./application-docker.properties:/opt/spring-boot-admin-docker/application-docker.properties
-    ports:
-      - 1111:1111
+    network_mode: "host"
+    restart: "always"
+    build: .
+    image: admin-server
     healthcheck:
       test: "curl -sS http://localhost:2222/health"
       interval: 1s

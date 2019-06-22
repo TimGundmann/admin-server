@@ -6,6 +6,8 @@ services:
     restart: "always"
     build: .
     image: admin-server
+    environment:
+      TZ: "Europe/Amsterdam"    
     healthcheck:
       test: "curl -sS http://localhost:2222/health"
       interval: 1s

@@ -2,9 +2,6 @@ server:
   port: 2222
 
 spring:
-  profiles:
-    active:
-    - prod
   application:
     name: admin
   cloud:

@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: admin
+  boot:
+    admin:
+      context-path: admin
   cloud:
     config:
       uri: http://192.168.1.100:5678

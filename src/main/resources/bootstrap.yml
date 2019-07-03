@@ -1,5 +1,6 @@
 server:
   port: 2222
+  use-forward-headers: true
 
 spring:
   application:
@@ -7,6 +8,8 @@ spring:
   boot:
     admin:
       context-path: admin
+      ui:
+        public-url: https://gundmann.dk
   cloud:
     config:
       uri: http://192.168.1.100:5678

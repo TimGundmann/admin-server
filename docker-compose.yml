@@ -6,6 +6,8 @@ services:
     restart: "always"
     build: .
     image: admin-server
+    volumes:
+      - /security:/security
     environment:
       TZ: "Europe/Amsterdam"    
     healthcheck:

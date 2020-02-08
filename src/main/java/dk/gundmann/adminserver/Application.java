@@ -24,13 +24,15 @@ public class Application {
 	
 	@Bean
     public WebClient createWebClient() throws SSLException {
-		System.out.println("create web client");
         SslContext sslContext = SslContextBuilder
             .forClient()
             .trustManager(InsecureTrustManagerFactory.INSTANCE)
             .build();
         HttpClient httpClient = HttpClient.create()
-            .secure(t -> t.sslContext(sslContext));
+            .secure(t -> {
+				System.out.println("WebClient: " + sslContext.toString());
+				t.sslContext(sslContext);
+			});
         return WebClient.builder()
             .clientConnector(new ReactorClientHttpConnector(httpClient))
             .build();
